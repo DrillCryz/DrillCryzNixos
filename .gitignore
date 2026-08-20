@@ -1,5 +1,1 @@
-cat <<EOF > .gitignore
-.git
 *.secret
-hardware-configuration.nix
-EOF

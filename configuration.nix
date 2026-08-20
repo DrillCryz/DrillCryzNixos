@@ -133,7 +133,7 @@
   environment.systemPackages = with pkgs; [
     (wine.override { wineBuild = "wine64"; })
     vesktop
-    pkgs.nautilus
+    nautilus
     yazi
     librsvg
     glycin-loaders

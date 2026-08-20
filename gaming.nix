@@ -4,7 +4,7 @@
   environment.systemPackages = with pkgs; [
 
         (pkgs.appimage-run.override {
-          extraPkgs = pkgs:[
+          extraPkgs = pkgs: [
             pkgs.icu
           ];
         })
