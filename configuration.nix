@@ -8,8 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      ./audio.nix
-      ./gaming.nix
+      ./extra-config.nix
     ];
 
   # Bootloader.

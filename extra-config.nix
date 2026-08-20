@@ -1,7 +1,8 @@
-{ pkgs, ... }
+{ pkgs, ... }:
 
-	## Audio y cosas de audio y asi xd
-
+	#################################################
+	## 	Audio y cosas de audio y asi xd 	##
+	##################################################
 {
     services.pulseaudio.enable = false;
     security.rtkit.enable = true;
@@ -11,14 +12,14 @@
       alsa.support32Bit = true;
       pulse.enable = true;
     };
-}
 
-	## Gaming y cosas de gaming y asi xd
+	##################################################
+	## 	Gaming y cosas de gaming y asi xd 	##
+	##################################################
 
-{
     environment.systemPackages = with pkgs; [
 
-      (pkgs.appimage-run.override {
+      (appimage-run.override {
         extraPkgs = pkgs: [
           pkgs.icu
        ];
