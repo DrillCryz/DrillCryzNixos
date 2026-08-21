@@ -8,6 +8,7 @@
         xclip
         tealdeer
         vim
+	yazi
         ghostty
         wget
         jq
