@@ -5,6 +5,10 @@
 
 { config, pkgs, ... }:
 
+	#######################
+	##      Imports      ##
+	#######################
+
 {
   imports =
     [
@@ -17,7 +21,9 @@
 
     boot.kernelPackages = pkgs.linuxPackages_latest;
 
-  networking.hostName = "DrillCryz"; # Define your hostname.
+	#######################
+	##      SwapRam      ##
+	#######################
 
     zramSwap = {
     enable = true;
@@ -28,6 +34,12 @@
   { device = "/swapfile"; }
 ];
 
+	#######################
+	##      Network      ##
+	#######################
+
+  networking.hostName = "DrillCryz";
+
   networking.networkmanager.enable = true;
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -36,8 +48,6 @@
     enable = true;
     powerOnBoot = true;
   };
-
-  hardware.opentabletdriver.enable = true;
 
   time.timeZone = "America/Santiago";
 
@@ -76,6 +86,10 @@
 
   services.printing.enable = true;
 
+	####################
+	##      User      ##
+	####################
+
   users.users."hax" = {
     isNormalUser = true;
     description = "DrillCryz";
@@ -102,11 +116,12 @@
     CLUTTER_BACKEND = "wayland";
   };
 
+	############################
+	##      Aplicaciones      ##
+	############################
+
   environment.systemPackages = with pkgs; [
-    (wine.override { wineBuild = "wine64"; })
-    vesktop
     nautilus
-    yazi
     librsvg
     glycin-loaders
     xwayland-satellite
@@ -118,6 +133,10 @@
     lm_sensors
     papirus-icon-theme
   ];
+
+	#######################
+	##      Fuentes      ##
+	#######################
 
   fonts.packages = with pkgs; [
     noto-fonts
@@ -139,6 +158,7 @@
     services.upower.enable = true;
     services.power-profiles-daemon.enable = true;
     hardware.sensor.iio.enable = true;
+    hardware.opentabletdriver.enable = true;
 
     programs.xwayland.enable = true;
 
@@ -179,6 +199,10 @@
     enable32Bit = true;
     extraPackages32 = with pkgs.pkgsi686Linux; [ mesa ];
 };
+
+	#######################
+	##      Version      ##
+	#######################
 
   system.stateVersion = "26.05";
 
