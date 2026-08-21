@@ -134,6 +134,11 @@
     papirus-icon-theme
   ];
 
+	##      (de nautilus)      ##
+  xdg.mime.defaultApplications = {
+    "inode/directory" = "org.gnome.Nautilus.desktop";
+  };
+
 	#######################
 	##      Fuentes      ##
 	#######################
@@ -165,18 +170,15 @@
     xdg.portal = {
       enable = true;
       wlr.enable = true;
+
       extraPortals = [
 	pkgs.xdg-desktop-portal-gtk
-	pkgs.xdg-desktop-portal-gnome
       ];
-	config = {
-	  common = {
-	    default = [ "gtk" ];
-	    "org.freedesktop.impl.portal.FileChooser" = [ "gtk" ];
-	    };
-       };
-	
-};
+
+      config.niri = {
+	"org.freedesktop.impl.portal.FileChooser" = [ "gtk" ];
+      };
+ };
 
     services.keyd = {
 	enable = true;
