@@ -1,3 +1,8 @@
+
+	##################################
+	##	Por ordenar aun xd	##
+	##################################
+
 { config, pkgs, ... }:
 
 {
@@ -111,6 +116,7 @@
     upower
     acpi
     lm_sensors
+    papirus-icon-theme
   ];
 
   fonts.packages = with pkgs; [
